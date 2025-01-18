@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+    <!-- Generated automatically by AFRAME Exporter for Blender - https://silverslade.itch.io/a-frame-blender-exporter -->
+    <!-- MIT License: https://github.com/silverslade/aframe_blender_exporter/blob/master/LICENSE -->
+    <head>
+        <title>WebXR Application</title>
+        <link rel="icon" type="image/png" href="favicon.ico"/>
+        <meta name="description" content="3D Application">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+        <script type="text/javascript" src="js/webxr.js"></script>
+        <script type="text/javascript" src="js/joystick.js"></script>
+        <script type="text/javascript" src="js/camera-cube-env.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body onload="init();">
+        <a-scene   shadow="type: basic; autoUpdate: false;" renderer="antialias: false; colorManagement: false; physicallyCorrectLights: false;">
+            <!-- Assets -->
+            <a-assets>
+				<a-asset-item id="Baby Chick" src="./assets/Baby Chick.gltf"></a-asset-item>
+				<a-asset-item id="Baby Chick.001" src="./assets/Baby Chick.001.gltf"></a-asset-item>
+				<a-asset-item id="Cylinder" src="./assets/Cylinder.gltf"></a-asset-item>
+				<a-asset-item id="Cylinder.001" src="./assets/Cylinder.001.gltf"></a-asset-item>
+				<a-asset-item id="Cylinder.003" src="./assets/Cylinder.003.gltf"></a-asset-item>
+				<a-asset-item id="Gound" src="./assets/Gound.gltf"></a-asset-item>
+				<a-asset-item id="Icosphere" src="./assets/Icosphere.gltf"></a-asset-item>
+				<a-asset-item id="Icosphere.001" src="./assets/Icosphere.001.gltf"></a-asset-item>
+				<a-asset-item id="Icosphere.002" src="./assets/Icosphere.002.gltf"></a-asset-item>
+				<a-asset-item id="Maze" src="./assets/Maze.gltf"></a-asset-item>
+                <img id="sky"                 src="./resources/sky.jpg">
+                <img id="icon-play"           src="./resources/play.png">
+                <img id="icon-pause"          src="./resources/pause.png">
+                <img id="icon-play-skip-back" src="./resources/play-skip-back.png">
+                <img id="icon-mute"           src="./resources/mute.png">
+                <img id="icon-volume-low"     src="./resources/volume-low.png">
+                <img id="icon-volume-high"    src="./resources/volume-high.png">
+            </a-assets>
+
+            <!-- Entities -->
+            
+			<a-entity id="#Baby Chick" gltf-model="#Baby Chick"  scale="1 1 1" position="-0.3097955584526062 1.9644501209259033 -15.986249923706055" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Baby Chick.001" gltf-model="#Baby Chick.001"  scale="1 1 1" position="-0.515315055847168 1.9644501209259033 -16.242834091186523" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Cylinder" gltf-model="#Cylinder"  scale="1 1 1" position="12.437841415405273 0.5144774913787842 -4.155558563923023e-09" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Cylinder.001" gltf-model="#Cylinder.001"  scale="1 1 1" position="-16.621883392333984 0.46999943256378174 -4.5479230880737305" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Cylinder.003" gltf-model="#Cylinder.003"  scale="1 1 1" position="15.203096389770508 0.34855759143829346 -10.381014823913574" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Gound" gltf-model="#Gound"  scale="1 1 1" position="-0.03894739970564842 -7.4010772705078125 -15.736138343811035" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Icosphere" gltf-model="#Icosphere"  scale="1 1 1" position="12.492612838745117 2.1028547286987305 0.021154003217816353" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Icosphere.001" gltf-model="#Icosphere.001"  scale="1 1 1" position="15.257867813110352 1.9369343519210815 -10.359862327575684" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Icosphere.002" gltf-model="#Icosphere.002"  scale="1 1 1" position="-16.56711196899414 2.0583763122558594 -4.526769638061523" visible="true" shadow="cast: false" ></a-entity>
+			<a-entity id="#Maze" gltf-model="#Maze"  scale="1 1 1" position="-0.00462696049362421 0.7407374978065491 -15.754284858703613" visible="true" shadow="cast: false" ></a-entity>
+
+            <!-- Camera -->
+            <a-entity id="player" 
+                position="0 -0.2 0" 
+                movement-controls="speed: 0.10000000149011612;">
+                <a-entity id="camera" 
+                    camera="near: 0.001" 
+                    position="0 1.7000000476837158 0" 
+                    look-controls="pointerLockEnabled: true">
+                        <a-entity id="cursor" cursor="fuse: false;" animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 50; from: 	0.1 0.1 0.1; to: 1 1 1"
+                            position="0 0 -0.1"
+                            geometry="primitive: circle; radius: 0.001;"
+                            material="color: #CCC; shader: flat;"
+                            >
+                        </a-entity>
+                </a-entity>
+                    <a-entity id="leftHand" oculus-touch-controls="hand: left" vive-controls="hand: left"></a-entity>
+					<a-entity id="rightHand" laser-controls oculus-touch-controls="hand: right" vive-controls="hand: right" ></a-entity>
+            </a-entity>
+
+            <!-- Lights -->
+            
+			<a-entity position="-0.2546829879283905 0.0 -16.181270599365234" light="castShadow:false; color:#ff14cf; distance:40.0; type:spot; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
+			<a-entity position="-0.9799818992614746 18.8382625579834 -10.57015323638916" light="castShadow:false; color:#ffffff; distance:40.0; type:directional; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
+
+            <!-- Sky -->
+            <a-sky color="#74c2e8"></a-sky>
+        </a-scene>
+    </body>
+</html>
+<!-- Generated automatically by AFRAME Exporter for Blender - https://silverslade.itch.io/a-frame-blender-exporter -->
+<!-- MIT License: https://github.com/silverslade/aframe_blender_exporter/blob/master/LICENSE -->
