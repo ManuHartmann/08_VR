@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  <title>VR Labyrinth</title>
+</head>
+<body>
+  <a-scene>
+    <a-assets>
+      <!-- Lade das Labyrinth-Modell -->
+      <a-asset-item id="labyrinth-model" src="labyrinth.glb"></a-asset-item>
+    </a-assets>
+
+    <!-- Positioniere das Labyrinth -->
+    <a-entity gltf-model="#labyrinth-model" position="0 0 0"></a-entity>
+
+    <!-- Kamera und Steuerung -->
+    <a-camera position="0 1.6 0">
+      <a-entity cursor="rayOrigin: mouse"></a-entity>
+    </a-camera>
+  </a-scene>
+</body>
+</html>

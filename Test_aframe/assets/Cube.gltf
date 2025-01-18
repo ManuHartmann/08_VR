@@ -1,0 +1,20 @@
+{
+	"asset":{
+		"generator":"Khronos glTF Blender I/O v3.5.30",
+		"version":"2.0"
+	},
+	"scene":0,
+	"scenes":[
+		{
+			"extras":{
+				"b_export":1,
+				"b_settings":1,
+				"b_renderer":1,
+				"b_interactive":1,
+				"export_path":"/Users/ginatoschi/Desktop/HFIAD24/Virtual_Reality/",
+				"s_output":"exporting..."
+			},
+			"name":"Scene"
+		}
+	]
+}
