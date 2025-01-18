@@ -51,22 +51,33 @@
 			<a-entity id="#Icosphere" gltf-model="#Icosphere"  scale="1 1 1" position="12.492612838745117 2.1028547286987305 0.021154003217816353" visible="true" shadow="cast: false" ></a-entity>
 			<a-entity id="#Icosphere.001" gltf-model="#Icosphere.001"  scale="1 1 1" position="15.257867813110352 1.9369343519210815 -10.359862327575684" visible="true" shadow="cast: false" ></a-entity>
 			<a-entity id="#Icosphere.002" gltf-model="#Icosphere.002"  scale="1 1 1" position="-16.56711196899414 2.0583763122558594 -4.526769638061523" visible="true" shadow="cast: false" ></a-entity>
-			<a-entity id="#Maze" gltf-model="#Maze"  scale="1 1 1" position="-0.00462696049362421 0.7407374978065491 -15.754284858703613" visible="true" shadow="cast: false" ></a-entity>
+            <a-entity id="Maze" 
+            gltf-model="#Maze"  
+            static-body
+            scale="1 1 1" 
+            position="-0.00462696049362421 0.7407374978065491 -15.754284858703613" 
+            visible="true"></a-entity>
+        
+
 
             <!-- Camera -->
             <a-entity id="player" 
-                position="0 -0.2 0" 
-                movement-controls="speed: 0.10000000149011612;">
-                <a-entity id="camera" 
-                    camera="near: 0.001" 
-                    position="0 1.7000000476837158 0" 
-                    look-controls="pointerLockEnabled: true">
-                        <a-entity id="cursor" cursor="fuse: false;" animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 50; from: 	0.1 0.1 0.1; to: 1 1 1"
-                            position="0 0 -0.1"
-                            geometry="primitive: circle; radius: 0.001;"
-                            material="color: #CCC; shader: flat;"
-                            >
-                        </a-entity>
+            position="0 -1 0" 
+            movement-controls="speed: 0.1;"
+            dynamic-body="shape: capsule; mass: 1;">
+            <a-entity id="camera" 
+                camera="near: 0.001" 
+                position="0 1.7 0" 
+                look-controls="pointerLockEnabled: true">
+                <a-entity id="cursor" 
+                    cursor="fuse: false;" 
+                    animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 50; from: 0.1 0.1 0.1; to: 1 1 1;"
+                    position="0 0 -0.1"
+                    geometry="primitive: circle; radius: 0.001;"
+                    material="color: #CCC; shader: flat;"></a-entity>
+            </a-entity>
+        </a-entity>
+        
                 </a-entity>
                     <a-entity id="leftHand" oculus-touch-controls="hand: left" vive-controls="hand: left"></a-entity>
 					<a-entity id="rightHand" laser-controls oculus-touch-controls="hand: right" vive-controls="hand: right" ></a-entity>
