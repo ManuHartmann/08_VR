@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+    <!-- Generated automatically by AFRAME Exporter for Blender - https://silverslade.itch.io/a-frame-blender-exporter -->
+    <!-- MIT License: https://github.com/silverslade/aframe_blender_exporter/blob/master/LICENSE -->
+    <head>
+        <title>WebXR Application</title>
+        <link rel="icon" type="image/png" href="favicon.ico"/>
+        <meta name="description" content="3D Application">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/aframe-physics-system@4.0.0/dist/aframe-physics-system.min.js"></script>
+        <script type="text/javascript" src="js/webxr.js"></script>
+        <script type="text/javascript" src="js/joystick.js"></script>
+        <script type="text/javascript" src="js/camera-cube-env.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body onload="init();">
+        <a-scene physics="debug: true" shadow="type: basic; autoUpdate: false; colorManagement: false; physicallyCorrectLights: false;">
+            <!-- Assets -->
+            <a-assets>
+                <a-asset-item id="Cube" src="./assets/Cube.gltf"></a-asset-item>
+                <a-asset-item id="Curve" src="./assets/Curve.gltf"></a-asset-item>
+                <a-asset-item id="Cylinder" src="./assets/Cylinder.gltf"></a-asset-item>
+                <a-asset-item id="Plane" src="./assets/Plane.gltf"></a-asset-item>
+                <img id="sky" src="./resources/sky.jpg">
+                <img id="icon-play" src="./resources/play.png">
+                <img id="icon-pause" src="./resources/pause.png">
+                <img id="icon-play-skip-back" src="./resources/play-skip-back.png">
+                <img id="icon-mute" src="./resources/mute.png">
+                <img id="icon-volume-low" src="./resources/volume-low.png">
+                <img id="icon-volume-high" src="./resources/volume-high.png">
+            </a-assets>
+
+            <!-- Physikalische Objekte -->
+            <a-entity id="Curve" gltf-model="#Curve" scale="1 1 1" position="0 1 -5" visible="true" shadow="cast: true" dynamic-body="mass: 1; shape: box"></a-entity>
+            <a-entity id="Cylinder" gltf-model="#Cylinder" scale="1 1 1" position="2 1 -5" visible="true" shadow="cast: true" dynamic-body="mass: 1; shape: box"></a-entity>
+            <a-entity id="#Plane" gltf-model="#Plane" scale="1 0 1" position="-3.689168691635132 0.17320917546749115 1.5659725666046143" visible="true" shadow="cast: false" body="type: static; mass: 0; shape: none" shape__main="shape: box; halfExtents: 10 0.5 10"></a-entity>
+
+            <!-- Kamera -->
+            <a-entity id="player" position="0 -0.5 15" movement-controls="speed: 0.1;">
+                <a-entity id="camera" camera="near: 0.001" position="0 1.7000000476837158 0" look-controls="pointerLockEnabled: true">
+                    <a-entity id="cursor" cursor="fuse: false;" animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 50; from: 0.1 0.1 0.1; to: 1 1 1"
+                        position="0 0 -0.1"
+                        geometry="primitive: circle; radius: 0.001;"
+                        material="color: #CCC; shader: flat;">
+                    </a-entity>
+                </a-entity>
+                <a-entity id="leftHand" oculus-touch-controls="hand: left" vive-controls="hand: left"></a-entity>
+                <a-entity id="rightHand" laser-controls oculus-touch-controls="hand: right" vive-controls="hand: right"></a-entity>
+            </a-entity>
+
+            <!-- Licht -->
+            <a-entity position="4.076245307922363 5.903861999511719 -1.0054539442062378" light="castShadow:false; color:#ffffff; distance:40.0; type:point; intensity:1.0; shadowBias: -0.001; shadowCameraFar: 501.02; shadowCameraBottom: 12; shadowCameraFov: 101.79; shadowCameraNear: 0; shadowCameraTop: -5; shadowCameraRight: 10; shadowCameraLeft: -10; shadowRadius: 2;"></a-entity>
+
+            <!-- Sky -->
+            <a-sky color="#ECECEC"></a-sky>
+        </a-scene>
+    </body>
+</html>
