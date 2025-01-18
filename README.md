@@ -1,3 +1,3 @@
 # VR-chickenmaze
 
-https://manuhartmann.github.io/08_VR/maze_2/index.html
+https://manuhartmann.github.io/08_VR/maze_v2/index.html
