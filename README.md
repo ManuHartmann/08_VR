@@ -1,3 +1,3 @@
 # VR-chickenmaze
 
-https://manuhartmann.github.io/08_VR/Test_aframe/index.html
+https://manuhartmann.github.io/08_VR/aframe-prj/index.html
